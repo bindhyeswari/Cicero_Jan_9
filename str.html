@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        var obj = {
+            type: 'base'
+        };
+
+        var x = Object.create(obj);
+        x.id = 10;
+
+        var y = Object.create(x);
+
+        console.log(y);
+
+        console.log(y instanceof Object);
+
+
+        function A() {
+
+        }
+        A.prototype.type = 'base';
+
+        var a = new A();
+
+        function B() {
+
+        }
+        B.prototype = new A();
+        B.prototype.id = '10';
+
+        var b = new B();
+        console.log(b);
+
+        console.log(b instanceof B);
+        console.log(b instanceof A);
+
+        console.log(b.constructor);
+
+        // b --> B.prototype --> (a) --> A.prototype
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
